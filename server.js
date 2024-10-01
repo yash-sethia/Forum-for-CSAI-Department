@@ -9,7 +9,8 @@ const comments = require('./routes/comments');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-mongoose.connect(process.env.MONGODB_URI || secrets.mongo_connection);
+
+mongoose.connect(process.env.MONGODB_URI || secrets.mongo_connection, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 
 
 const allowCrossDomain = (req,res,next) => {
